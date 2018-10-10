@@ -1,0 +1,61 @@
+<section class="container-fluid cuerpo">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-4 mt-1 mb-2 pb-0 pt-1 bgform">
+      <form #LoginForm="ngForm" (ngSubmit)="onSubmit()" class="container">
+        <h3 class="text-primary text-center mt-3 font-weight-bold">{{ tingreso }}</h3>
+        <img src="{{ imagen }}" width="250" class="rounded mx-auto d-block mt-2" alt="fondo">
+
+        <!--Mensajes de error o éxito-->
+        <div class="text-center col-sm-12">
+          <span *ngIf="estado== 'Logueado'" class="alert alert-success col-md-12 mx-auto" role="alert">Se ha Logueado con éxito!.</span>
+          <span class="justify-content-md-center mt-2" *ngIf="estado== 'Error'" class="alert alert-danger">No se Reconoce al usuario</span>
+        </div>
+        <!--Fin de los mensajes-->
+                
+        <div class="form-label-group">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="Usuario de acceso" name="emailusua" #emailusua="ngModel" [(ngModel)]="user.emailusua" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Ingrese email">
+          <label for="exampleInputEmail1" class="text-primary">Correo Electrónico</label>
+          <span class="text-danger bg-warning" *ngIf="!emailusua.valid && emailusua.touched">Campo Obligatorio e-mail</span>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" class="form-control" id="exampleInputPassword1" name="passusua" #passusua="ngModel" [(ngModel)]="user.passusua" placeholder="Ingrese Password">
+          <label for="exampleInputPassword1" class="text-primary">Contraseña</label>
+          <span class="text-danger bg-warning" *ngIf="!passusua.valid && passusua.touched">Campo Obligatorio e-mail</span>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" checked required id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Acepto <a data-toggle="modal" data-target="#politicas" class="font-weight-bold text-primary"> Términos y Condiciones </a></label>
+        </div>
+        <button type="submit" class="btn btn-primary form-control" [disabled]="!LoginForm.form.valid">Ingresar</button>
+        <a  [routerLink]="['/']" class="nav-link text-dark font-weight-bold text-right">Volver al Inicio</a>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- Modal Politicas de Seguridad -->
+
+<div class="modal fade bd-example-modal-lg" id="politicas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-justify">
+        <h5>{{ tpoliticas }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <politicas></politicas>
+      </div>
+      <div class="modal-footer justify-content-md-center">
+        <a ngbTooltip="Perfil de LinkedIn" container="body" href="https://www.linkedin.com/in/eder-lara-trujillo-659047125/" target="_blank" class="btn btn-outline-muted text-primary linkeind"><i class="fa fa-linkedin"></i> Eder Lara T</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

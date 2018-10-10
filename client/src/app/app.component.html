@@ -1,0 +1,66 @@
+<nav id="" class="navbar navbar-expand-lg navbar-light menu">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="font-weight-bold navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand text-light mr-auto mt-2 mt-lg-0 menuitem"  [routerLink]="['/']" ><h3><img src="{{logo}}" class="logo img-fluid" width="40" alt=""> {{title}} </h3></a>
+
+    <ul class="navbar-nav" *ngIf="!usuario">
+      <li class="nav-item">
+        <a class="nav-link text-light menuitem" href="" data-toggle="modal" data-target="#about">
+          <i class="fa fa-info"></i>
+           Acerca
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light menuitem" [routerLink]="['/login']">
+          <i class="fa fa-user"></i>
+           Ingresar
+        </a>
+      </li>
+    </ul>
+    <!-- Fin de Menu ingreso-->
+    <!-- Menu de Usuario -->
+    <ul class="navbar-nav" *ngIf="usuario">
+      <li class="nav-item dropdown">
+        <a class="nav-link text-light dropdown-toggle menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-secret"></i>
+           {{usuario.nombusua}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="pointer dropdown-item" [routerLink]="['/admin']"><i class="fa fa-user"></i> Ver Perfil</a>
+          <a class="pointer dropdown-item" (click)="logout()"><i class="fa fa-plug"></i> Cerrar Sesión</a>
+        </div>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+    
+      <router-outlet></router-outlet>
+    
+<!-- Modal de Acerca de este Software -->
+
+<div class="modal fade bd-example-modal-lg" id="about" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header text-justify">
+        <h5 class="modal-title text-center" id="exampleModalCenterTitle">Acerca de la Aplicación&nbsp;&nbsp;&nbsp;<img src="{{herramientas}}" width="100" data-toggle="tooltip" title="Desarrollado con NodeJS" alt="logo MEAN"> &nbsp;&nbsp;&nbsp;<i class="fa fa-chrome"></i>&nbsp; <i class="fa fa-firefox"></i>&nbsp; <i class="fa fa-edge"></i>&nbsp; <i class="fa fa-safari"></i>&nbsp; &nbsp; &nbsp; &copy;2018</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <about></about>
+      </div>
+      <div class="modal-footer justify-content-md-center">
+        <a ngbTooltip="Perfil de LinkedIn" container="body" href="https://www.linkedin.com/in/eder-lara-trujillo-659047125/" target="_blank" class="btn btn-outline-muted text-primary linkeind"><i class="fa fa-linkedin"></i> Eder Lara T</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,32 @@
+<div class="row">
+	<nav class="col-md-2 d-none d-md-block bg-light sidebar ml-0">
+		<aside class="sidebar-sticky">
+			<img src="{{ usuarioimg }}" class="img-fluid img-thumbnail rounded mx-auto d-block mt-2" alt="">
+		</aside>
+		<h4 class="text-primary text-center"> {{ usuario.nombusua +' '+ usuario.apelusua }} </h4>
+		<h5 class="text-success">Datos Personales</h5>
+	</nav>
+	<div class="col-md-9">
+		<h2 class="text-primary">1. Formulario de Datos Personales</h2>
+		<hr class="text-primary">
+		<form class="needs-validation col-sm-10" novalidate method="post" >
+			<p *ngFor ="let tipodoc of tipodocs">{{ tipodoc }}</p>
+			<!-- Entradas Ocultas ocultas para la carga en el modelo
+			<input type="hidden" name="usuario" value="{{ usuario._id }}" disabled>
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+					<label for="validationCustom01">Tipo de Documento</label>  -->
+					<!--
+					<select name="tipodocu" class="form-control" id="validationCustom01" #tipodocu="ngForm" [(ngModel)]="datousua.tipodocu">
+						<option value=""></option>
+					</select> -->
+				      <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+				      <div class="valid-feedback">Looks good!</div>
+				<!--</div>  
+			</div>-->
+		</form>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,30 @@
+<section class="container mt-4 mb-4 pb-4">
+  <div class="row justify-content-md-center mt-5 mb-2 ">
+    <div class="col col-lg-4 mt-4 mb-4 bgform">
+      <form #LoginForm="ngForm" (ngSubmit)="onSubmit()" class="container">
+        <a  [routerLink]="['/']" class="btn bt-outline-secondary pb-4">Volver</a>
+        <img src="../../../assets/media/img/Eder.png" width="250" class="rounded mx-auto d-block mt-2" alt="fondo">
+        <!--Mensajes de error o éxito-->
+        <span *ngIf="estado== 'Logueado'" class="alert alert-success col-md-12 mx-auto" role="alert">Se ha Logueado con éxito!.</span>
+        <span class="justify-content-md-center mt-2" *ngIf="estado== 'Error'" class="alert alert-danger">No se Reconoce al usuario</span>
+        <!--Fin de los mensajes-->
+                
+        <div class="form-label-group">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="Usuario de acceso" name="emailusua" #emailusua="ngModel" [(ngModel)]="user.emailusua" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Ingrese email">
+          <label for="exampleInputEmail1" class="text-primary">Correo Electrónico</label>
+          <span class="alert alert-danger" *ngIf="!emailusua.valid && emailusua.touched">Campo Obligatorio e-mail</span>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" class="form-control" id="exampleInputPassword1" name="passusua" #passusua="ngModel" [(ngModel)]="user.passusua" placeholder="Ingrese Password">
+          <label for="exampleInputPassword1" class="text-primary">Contraseña</label>
+          <span class="alert alert-danger" *ngIf="!passusua.valid && passusua.touched">Campo Obligatorio e-mail</span>
+        </div>
+        <div class="pb-3">
+          <button type="submit" class="btn btn-primary form-control" [disabled]="!LoginForm.form.valid">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+      

@@ -1,0 +1,11 @@
+.menu{
+	text-shadow: 1px 1px 1px rgba(255, 250, 250, 1);
+	font-weight: bolder;
+}
+.cuerpo{
+	font-family: 'Montserrat', sans-serif !important;
+	background-image: url(../assets/media/img/fondoindex.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}

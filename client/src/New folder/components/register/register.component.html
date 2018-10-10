@@ -1,0 +1,75 @@
+<section class="container-fluid">
+  <div class="row">
+    <!-- Seccion de registro de empresa -->
+    <div class="col-sm-6">
+      <br>
+      <form class="col-lg-12 bgform mt-5 mb-5" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <h2 class="text-primary">{{title}}</h2>
+        <hr>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4" >Identificación NIT:</label>
+            <input type="text" class="form-control" name="idempresa" #idempresa="ngModel" [(ngModel)]="empresa.idempresa" placeholder="Número de Identificación Tributario" required>
+            <span class="text-danger" role="alert" *ngIf="!idempresa.valid && idempresa.touched"> Nit es Obligatorio!!</span>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Nombre o Razón Social</label>
+            <input type="text" class="form-control" id="nombempre" name="nombempre" #nombempre="ngModel" [(ngModel)]="empresa.nombempre" placeholder="Razón Social " required>
+            <span class="text-danger" role="alert" *ngIf="!nombempre.valid && nombempre.touched">El Nombre o Razón Social es Obligatorio!!</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Dirección</label>
+          <input type="text" class="form-control" id="direcempre" name="direcempre" #direcempre="ngModel" [(ngModel)]="empresa.direcempre" placeholder="Carrera 12 #34-56 Transversal xx" required>
+          <span class="text-danger" role="alert" *ngIf="!direcempre.valid && direcempre.touched">La Direccion es Obligatoria!!</span>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputAddress2">Correo Electronico</label>
+            <input type="email" class="form-control" id="emailempre" name="emailempre" #emailempre="ngModel" [(ngModel)]="empresa.emailempre" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="empresa@mail.com" required >
+            <span class="text-danger" role="alert" *ngIf="!emailempre.valid && emailempre.touched">el E-mail es Obligatorio!!</span>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputAddress2">Telefonos</label>
+            <input type="phone" class="form-control" id="inputAddress2" name="" placeholder="57 0000 00 300 0000 000">
+            <span class="text-danger" role="alert" *ngIf="!emailempre.valid && emailempre.touched">el E-mail es Obligatorio!!</span>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputAddress2">Total Empleados</label>
+            <input type="number" class="form-control" id="inputAddress2">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputCity">País</label>
+            <input type="text" class="form-control" id="inputCity" disabled value="Colombia">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Departamento</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputZip">Municipio</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <div class="d-flex align-items-center pb-2">
+          <button type="submit" class="btn btn-lg btn-primary ml-auto" [disabled]="!registerForm.form.valid">Registrar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Seccion de ingreso al test -->
+    <div class="col-sm-6 mb-0"></div>
+    <!-- Seccion de contacto -->
+    <h5 class="contactored">Contáctenos en nuestras Redes:</h5>
+    <div class="col-lg-12 mt-0 d-flex redes">
+    
+      <a href="" class="btn btn-info"><i class="fa fa-linkedin"></i>&nbsp;LinkedIn</a> &nbsp; <a class="btn btn-success" href=""><i class="fa fa-envelope"></i>&nbsp;Mensaje</a> &nbsp; <a class="btn btn-primary" href=""><i class="fa fa-facebook"></i>&nbsp;Facebook</a> 
+    </div>
+
+  </div>
+</section>

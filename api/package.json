@@ -1,0 +1,33 @@
+{
+  "name": "riskpsico",
+  "version": "1.0.0",
+  "description": "Software para el manejo de evaluaciones de riesgo psicosocial, desarrollado para trabajo de fin de master 04-04-2018",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "riesgo",
+    "psicosocial",
+    "riesgo-psicosocial",
+    "evaluacion"
+  ],
+  "author": "Eder Lara Trujillo",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.1.0",
+    "express": "^4.16.3",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.22.0",
+    "mongoose": "^5.0.13",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-pagination": "^1.0.0",
+    "npm": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
